@@ -30,8 +30,24 @@ class Api {
     );
 
     $jsonPayload = json_encode($data);
+    $jsonResponse = $this->post($this->aiUrl, $jsonPayload);
 
-    return $this->post($this->aiUrl, $jsonPayload);
+    $text = '';
+    try {
+        foreach ($jsonResponse['candidates'] as $candidate) {
+          if (isset($candidate['content']['parts'])) {
+            foreach ($candidate['content']['parts'] as $part) {
+              $text .= $part['text'];
+            }
+          }
+        }
+    } catch (\Exception $e) {
+      throw new \Exception('Error: Unable to parse response. ' . $e->getMessage());
+    } finally {
+        if (empty($text)) $text = '<censored>';
+    }
+
+    return $text;
   }
 
   private function get($url) {
