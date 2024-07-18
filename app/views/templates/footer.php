@@ -1,16 +1,14 @@
-<footer class="footer mt-5">    
-  <div class="row">
-    <div class="col-lg-12">
-      <hr class="border-top border-1 border-dark mb-0">
-      <hr class="border-top border-1 border-light-subtle mt-0">
-      <div class="d-flex justify-content-between">
-        <p>Copyright &copy; <?php echo date('Y'); ?> </p>
-        <p>Frank Manno - Algoma University</p>
+<div class="container-fluid fixed-bottom">
+  <footer class="footer bg-light">    
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="d-flex justify-content-between">
+          <p>Copyright &copy; <?php echo date('Y'); ?> </p>
+          <p>Frank Manno - Algoma University</p>
+        </div>
       </div>
     </div>
-  </div>
-</footer>
-
+  </footer>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
