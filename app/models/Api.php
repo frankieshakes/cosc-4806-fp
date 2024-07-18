@@ -50,9 +50,7 @@ class Api {
       die;
     }
 
-    echo $response;
-    
-    return json_decode($result, true);
+    return json_decode($response, true);
   }
 
   private function post($url, $data) {

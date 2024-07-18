@@ -12,16 +12,19 @@ class Movie extends Controller {
         
       }
 
+      $title = $_REQUEST['movie'];
+
       $api = $this->model('Api');
 
-      $title = $_REQUEST['movie'];
       $movie = $api->search_movie($title);
-
-      // $review = $api->get_movie_review($title);
+      $review = $api->get_movie_review($title);
 
       echo '<pre>';
       print_r($movie);
-      // print_r($review);
+      echo '</pre>';
+      echo '<pre>';
+      print_r($review);
+      echo '</pre>';
       die;
     }
 
