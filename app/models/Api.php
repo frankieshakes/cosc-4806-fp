@@ -22,7 +22,7 @@ class Api {
           "role" => "user",
           "parts" => array(
             array(
-              "text" => "Provide a concise review for the movie " . $title . "."
+              "text" => "Provide a concise and captivating single-line review of the movie " . $title . ", followed by a concise review (no more than 2 paragraphs long). Do not use the word 'review' in the review. Keep it clean and family-friendly. Use the following string sequence to split the two sections: --|--"
             )
           )
         )
@@ -31,6 +31,8 @@ class Api {
 
     $jsonPayload = json_encode($data);
     $jsonResponse = $this->post($this->aiUrl, $jsonPayload);
+
+    // print_r($jsonResponse);
 
     $text = '';
     try {
