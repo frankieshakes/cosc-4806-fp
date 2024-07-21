@@ -22,7 +22,7 @@
 	}
 ?>
 
-<?php require_once 'app/views/templates/headerPublic.php'?>
+<?php require_once 'app/views/templates/headerNonAuth.php'?>
 <main role="main" class="container">
 	<?php if (isset($_SESSION['failedAttempts']) || isset($_SESSION['invalidLogin'])): ?>
 		<div class="alert alert-warning" role="alert">
