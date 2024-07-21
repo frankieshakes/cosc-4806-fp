@@ -17,7 +17,9 @@ class MovieReview {
   public function getMovieRatings($title) {
     $db = db_connect();
     // let's sum up all rows and return the average rating for the matching movie 
-    $stmt = $db->prepare("SELECT AVG(rating) AS average_rating FROM movie_reviews WHERE title = :title");
+    $stmt = $db->prepare("SELECT AVG(rating) AS average_rating, MAX(CASE WHEN user_id = :user_id THEN 1 ELSE 0 END) AS has_rated, MAX(CASE WHEN user_id = :user_id2 THEN rating ELSE NULL END) AS user_rating FROM movie_reviews WHERE title = :title");
+    $stmt->bindValue(':user_id', $_SESSION['user_id']);
+    $stmt->bindValue(':user_id2', $_SESSION['user_id']);
     $stmt->bindValue(':title', $title);
     $stmt->execute();
     return $stmt->fetch(PDO::FETCH_ASSOC);
